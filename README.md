@@ -8,8 +8,8 @@
 | 참여 | 역할 |
 | --- | --- |
 | [이성욱](https://github.com/elecbug) | |
-| [이서원](https://github.com/) | |
-| [최유정](https://github.com/) | |
-| [옥승호](https://github.com/) | |
-| [박재홍](https://github.com/) | |
-| [Ducanhtran](https://github.com/) | |
+| [이서원](https://github.com/dnjsl) | |
+| [최유정](https://github.com/adelklee) | |
+| [옥승호](https://github.com/Seunghook) | |
+| [박재홍](https://github.com/Hong6968) | |
+| [Ducanhtran](https://github.com/datbg152) | |
