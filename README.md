@@ -1,5 +1,9 @@
-# KMU 2024 Capstone Design Project 2
+# KMU Computer Engineering 2024 Capstone Design Project 2
 > Capstone design project in Keimyung-univ.
+
+## 주제
+## 상세
+## 참조
 
 | 참여 | 역할 |
 | --- | --- |
