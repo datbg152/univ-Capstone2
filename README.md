@@ -3,9 +3,6 @@
 
 ## 주제
 
-## 상세
-
-## 참여
 | 참여 | 역할 |
 | --- | --- |
 | [이성욱](https://github.com/elecbug) | |
@@ -14,7 +11,3 @@
 | [옥승호](https://github.com/Seunghook) | |
 | [박재홍](https://github.com/Hong6968) | |
 | [Ducanhtran](https://github.com/datbg152) | |
-
-## 기타
-
-## 참조
