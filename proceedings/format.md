@@ -1,4 +1,4 @@
-# 주간 회의록
+# 회의록
 <p align="right">Date NNNNNN</p>
 
 | 참여자 | 역할 | 비고 |
