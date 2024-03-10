@@ -21,4 +21,7 @@ Git 및 Web Server가 탑재된 Ubuntu Docker Image
 
 개발 서버가 필요한 소형 기업 및 개인 사용자
 
+### 설계도
+![imagg](./res/image.png)
+
 ### 결과물
