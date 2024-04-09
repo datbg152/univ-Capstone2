@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "document": "^0.0.0",
     "express": "^4.19.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "tls": "^0.0.1"
   }
 }
