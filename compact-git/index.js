@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require('path')
-const tls = require('node:tls')
 
 app.use(express.static('public'))
 
@@ -13,11 +12,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-    let body = ''
-    req.on('data', data => body += data)
-    return req.on('end', () => {
-        console.log(body)
-    })
+    // let body = ''
+    // req.on('data', data => body += data)
+    // return req.on('end', () => {
+    //     console.log(body)
+    // })
 })
 
 app.listen(port, () => {
