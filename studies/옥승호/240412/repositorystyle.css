@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    background-image: url(background.jpg);
+}
+
+.logo {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    isolation: isolate;
+}
+
+h1 {
+    background-color: rgb(0, 0, 0);
+    color: white; 
+    padding: 10px;
+    width: 100%;
+    margin-top: 0; 
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+div{
+    margin-bottom: 10px;
+}
+
+#search {
+    height: 30px;
+    width: 80%;
+    font-size: 18px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+#search-button {
+    height:30px;
+    width:16%;
+    padding: 7px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+#search-button:hover {
+    background-color: #218838;
+}
+
+.repo {
+    list-style: none;
+    padding: 0;
+    border: 1px solid #7419eb;
+    border-radius: 5px;
+    height: 200px;
+    font-size: 25px;
+    background-color: white;
+}
+
+#add-repo,#add-favorite {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 15px 1px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+}
+
+#add-repo:hover,
+#add-favorite:hover {
+    background-color: #218838;
+}
+
+label{
+    color: aliceblue;
+}

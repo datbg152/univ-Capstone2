@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    background-image: url(background.jpg);
+}
+
+h1 {
+    background-color: rgb(0, 0, 0);
+    color: white; 
+    padding: 10px;
+    width: 100%;
+    margin-top: 0; 
+}
+
+h2{
+    color: aliceblue;
+}
+
+.logo {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    isolation: isolate;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.comment-list {
+    margin-top: 20px;
+}
+
+.comments {
+    list-style: none;
+    padding: 0;
+    border: 1px solid #7419eb;
+    background-color: white;
+    border-radius: 5px;
+    height: 200px;
+    font-size: 25px;
+}
+
+.comment-input {
+    width: 100%;
+    max-width: 100%;
+    min-height: 50px; 
+    max-height: 100px; 
+}
+
+.reply-button {
+    width: 100px;
+    height: 40px;
+    background-color: #007bff; 
+    color: #fff;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 16px; 
+}
+
+.reply-button:hover {
+    background-color: #0056b3;
+}
+
