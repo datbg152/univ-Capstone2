@@ -15,16 +15,78 @@
     <div>
         <input type="text" id="search" placeholder="Search repositories">
 
-        <button id="search-button">Search</button>
+        <button id="search-button">Search</button> 
     </div>
 
     <div id="repo-order"></div>
 
-    <div id="repo-list"></div>
+    <ul id="repo-list"></ul>
 
     <button id="add-repo">Add Repository</button>
 
     <button id="add-favorite">★</button>
     
+    <script>
+        document.getElementById("add-repo").addEventListener("click", function() {
+            window.location.href = '/addrepo';
+        });
+
+        document.getElementById("search-button").addEventListener("click", function() {
+            var searchTerm = document.getElementById("search").value;
+            generateList(searchTerm);
+        });
+
+        document.getElementById("add-favorite").addEventListener("click", function() {
+            var selectedItems = Array.from(document.querySelectorAll("#repo-list li.selected"));
+            selectedItems.forEach(function(item) {
+                // 선택된 아이템의 텍스트를 가져와 서버로 POST 요청을 보냄
+                var newItem = item.textContent;
+                fetch('/favorites?item=' + newItem, {
+                    method: 'POST'
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data); // 성공적으로 즐겨찾기에 추가된 아이템을 콘솔에 출력
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+
+            // 선택된 아이템을 즐겨찾기 목록에 추가하는 코드
+            var repoOrder = document.getElementById("repo-order");
+            selectedItems.forEach(function(item) {
+                repoOrder.appendChild(item.cloneNode(true));
+            });
+        });
+
+        document.getElementById("repo-list").addEventListener("click", function(event) {
+            if (event.target.tagName === "LI") {
+                event.target.classList.toggle("selected");
+            }
+        });
+
+        function generateList(searchTerm) {
+            var searchResult = [
+                "Search Result 1",
+                "Search Result 2",
+                "Search Result 3"
+            ];
+
+            var listContainer = document.getElementById("repo-list");
+            listContainer.innerHTML = "";
+
+            for (var i = 0; i < searchResult.length; i++) {
+                var listItem = document.createElement("li");
+                listItem.textContent = searchResult[i];
+                listContainer.appendChild(listItem);
+
+                // 클릭 이벤트를 추가하여 리스트 아이템을 클릭할 때 선택되도록 함
+                listItem.addEventListener("click", function() {
+                    this.classList.toggle("selected");
+                });
+            }
+        }
+    </script>
 </body>
 </html>
