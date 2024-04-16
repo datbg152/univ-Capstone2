@@ -18,12 +18,12 @@
     </head>
     <body>
         <div class="background"></div>
-        <div class="centering"><!--중앙 정렬-->
-            <form class="my-form"><!--양식-->
+        <div class="centering"><!--중앙 정렬-->    
+            <form method="post" action="/sign-up"><!--양식-->
                 <div class="signup-welcome-row">
                     <h1>Sign Up!</h1>
                 </div>
-                <div class="my-form__content">
+                < class="my-form__content">
                     <div class="text-field">
                         <label for="email">Email:</label>
                         <input
@@ -84,7 +84,7 @@
                             </svg>
                         </label>
                     </div>
-                    <input type="submit" class="my-form__button" value="Sign-Up">
+                    <button name="type" value="type.sign-up-up">Sign up</input>
                 </div>
                 <div class="my-form__actions">
                     <div>
@@ -92,17 +92,8 @@
                         <a  href="#" title="Reset Password">Terms</a>
                         and <a href="#" title="Reset Password">Privacy</a>
                     </div>
-                    <div class="my-form__signin">
-                        <a onclick = "redirectToAnother()" href="#" title="Sign In">Sign-in</a>
-                    </div>
                 </div>
             </form>
         </div>
-        <script src="script.js"></script>
-        <script>
-        function redirectToAnother() {
-            window.location.href = "/main";
-        }
-        </script>
     </body>
 </html>

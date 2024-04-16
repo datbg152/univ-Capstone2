@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 80
 const path = require('path')
 const qs = require('querystring')
 const mysql = require('mysql')
@@ -16,7 +16,7 @@ const con = mysql.createConnection({
 });
 
 app.get('/', (req, res) => {
-    const retfile = path.resolve(__dirname, 'public/main.html')
+    const retfile = path.resolve(__dirname, 'public/mainpage.html')
     res.sendFile(retfile);
 })
 
@@ -43,7 +43,7 @@ app.post('/', (req, res) => {
 })
 
 app.get('/sign-up', (req, res) => {
-    const retfile = path.resolve(__dirname, 'public/sign-up.html')
+    const retfile = path.resolve(__dirname, 'public/signup.html')
     res.sendFile(retfile)
 })
 
