@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-ui-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="assets/css/core/index.css" />
+    <link rel="stylesheet" href="assets/css/components/signup.css" />
+    <link rel="stylesheet" href="assets/css/components/theme-mode.css" />
+  </head>
+  <body class="relative">
+    <div class="theme-mode form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="switch-theme-mode"
+      />
+      <label
+        id="label-switch-theme-mode"
+        class="form-check-label"
+        for="switch-theme-mode"
+        >Mode</label
+      >
+    </div>
+    <main
+      role="main"
+      class="container min-vh-100 d-flex justify-content-center align-items-center"
+    >
+      <div class="form-signup w-100">
+        <form>
+          <h3 class="mb-3 fw-normal">등록 페이지</h3>
+          <div class="d-flex align-items-stretch gap-2">
+            <div class="flex-fill d-flex flex-column gap-2">
+              <input
+                type="text"
+                class="form-control text-center"
+                id="id"
+                placeholder="아이디를 입력해주세요"
+              />
+
+              <input
+                type="password"
+                class="form-control text-center"
+                id="password"
+                placeholder="비밀번호를 입력해주세요"
+              />
+
+              <input
+                type="password"
+                class="form-control text-center"
+                id="password-confirm"
+                placeholder="비밀번호를 다시 입력해주세요"
+              />
+            </div>
+            <div>
+              <button class="btn btn-primary w-100 h-100" type="submit">
+                Sign up
+              </button>
+            </div>
+          </div>
+
+          <p class="form-text mt-4">
+            이미 계정이 있나요? <a href="/signin">로그인으로 이동</a>
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>
