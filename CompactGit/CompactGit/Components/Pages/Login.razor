@@ -1,0 +1,38 @@
+﻿@page "/"
+
+<PageTitle>Login</PageTitle>
+
+<h1>Login</h1>
+
+<div class="text-field">
+    <label for="id">ID:</label>
+    <input name="id"
+           placeholder="Your Id"
+           required/>
+</div>
+<div class="text-field">
+    <label for="password">Password:</label>
+    <input name="password"
+           placeholder="Your Password"
+           required/>
+</div>
+
+<NavLink class="nav-link" href="@UserName">
+    <button class="btn btn-primary" @onclick="LoginButtonClick">Login</button>
+</NavLink>
+
+<NavLink class="nav-link" href="sign-up">
+    <button class="btn btn-primary" @onclick="SignUpButtonClick">Sign up</button>
+</NavLink>
+
+@code {
+    public string UserName { get; set; } = "";
+
+    private void LoginButtonClick(MouseEventArgs e)
+    {
+    }
+    private void SignUpButtonClick(MouseEventArgs e)
+    {
+        
+    }
+}
