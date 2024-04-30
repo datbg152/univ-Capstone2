@@ -57,7 +57,7 @@
         await Context!.Users.LoadAsync();
 
         GitDb.User? user = Context!.Users.Where(x => x.Id == Id && x.Pw == PassHasing(Passwd)).FirstOrDefault();
-        
+
         if (user != null)
         {
             UserName = user.Nickname;
@@ -71,7 +71,7 @@
 
     private void SignUpButtonClick(MouseEventArgs e)
     {
-
+        NavigationManager.NavigateTo("/sign-up");
     }
 
     public void Dispose()
