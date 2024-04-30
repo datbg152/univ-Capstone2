@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompactGit", "CompactGit\CompactGit.csproj", "{F1D39552-B8F9-4318-A542-F5F9D576040E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompactGit", "CompactGit\CompactGit.csproj", "{F1D39552-B8F9-4318-A542-F5F9D576040E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,10 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.EntityFrameworkCore
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+@inject IDbContextFactory<GitDb.GitdbContext> DbFactory
+@implements IDisposable
 
 <PageTitle>Login</PageTitle>
 
@@ -6,33 +12,62 @@
 
 <div class="text-field">
     <label for="id">ID:</label>
-    <input name="id"
+    <input @bind="Id"
            placeholder="Your Id"
            required/>
 </div>
 <div class="text-field">
     <label for="password">Password:</label>
-    <input name="password"
+    <input @bind="Passwd"
            placeholder="Your Password"
            required/>
 </div>
 
-<NavLink class="nav-link" href="@UserName">
-    <button class="btn btn-primary" @onclick="LoginButtonClick">Login</button>
-</NavLink>
+<button class="btn btn-primary" 
+        type="button"
+        @onclick="LoginButtonClick">Login</button>
 
-<NavLink class="nav-link" href="sign-up">
-    <button class="btn btn-primary" @onclick="SignUpButtonClick">Sign up</button>
-</NavLink>
+<button class="btn btn-primary"
+        type="button"
+        @onclick="SignUpButtonClick">Sign up</button>
 
 @code {
+    public string Id { get; set; } = "";
+    public string Passwd { get; set; } = "";
     public string UserName { get; set; } = "";
+    public GitDb.GitdbContext? Context { get; set; }
 
-    private void LoginButtonClick(MouseEventArgs e)
+    protected override async Task OnInitializedAsync()
     {
+        Context = DbFactory.CreateDbContext();
+        
+        await base.OnInitializedAsync();
     }
+
+    private async void LoginButtonClick(MouseEventArgs e)
+    {
+        await Context!.Users.LoadAsync();
+
+        GitDb.User? user = Context!.Users.Where(x => x.Id == Id && x.Pw == Passwd).FirstOrDefault();
+
+        if (user != null)
+        {
+            UserName = user.Nickname;
+            NavigationManager.NavigateTo("/" + UserName);
+        }
+        else
+        {
+            return;
+        }
+    }
+
     private void SignUpButtonClick(MouseEventArgs e)
     {
-        
+
+    }
+
+    public void Dispose()
+    {
+        Context?.Dispose();
     }
 }

@@ -1,9 +1,12 @@
 using CompactGit.Components;
+using CompactGit.GitDb;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
+builder.Services.AddDbContextFactory<GitdbContext>()
+    .AddRazorComponents()
     .AddInteractiveServerComponents();
 
 var app = builder.Build();
