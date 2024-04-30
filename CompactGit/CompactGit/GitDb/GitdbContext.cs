@@ -30,13 +30,13 @@ public partial class GitdbContext : DbContext
             entity.ToTable("user");
 
             entity.Property(e => e.Id)
-                .HasMaxLength(20)
+                .HasMaxLength(100)
                 .HasColumnName("id");
             entity.Property(e => e.Nickname)
                 .HasMaxLength(20)
                 .HasColumnName("nickname");
             entity.Property(e => e.Pw)
-                .HasMaxLength(20)
+                .HasMaxLength(100)
                 .HasColumnName("pw");
         });
 

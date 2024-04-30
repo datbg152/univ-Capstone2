@@ -1,6 +1,9 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.EntityFrameworkCore
+@using System.Diagnostics
+@using System.Security.Cryptography
+@using System.Text
 @rendermode InteractiveServer
 @inject NavigationManager NavigationManager
 @inject IDbContextFactory<GitDb.GitdbContext> DbFactory
@@ -40,16 +43,21 @@
     protected override async Task OnInitializedAsync()
     {
         Context = DbFactory.CreateDbContext();
-        
+
         await base.OnInitializedAsync();
+    }
+
+    private string PassHasing(string pass)
+    {
+        return Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(pass)));
     }
 
     private async void LoginButtonClick(MouseEventArgs e)
     {
         await Context!.Users.LoadAsync();
 
-        GitDb.User? user = Context!.Users.Where(x => x.Id == Id && x.Pw == Passwd).FirstOrDefault();
-
+        GitDb.User? user = Context!.Users.Where(x => x.Id == Id && x.Pw == PassHasing(Passwd)).FirstOrDefault();
+        
         if (user != null)
         {
             UserName = user.Nickname;
