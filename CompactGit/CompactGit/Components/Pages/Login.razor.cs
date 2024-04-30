@@ -27,7 +27,7 @@ namespace CompactGit.Components.Pages
             await base.OnInitializedAsync();
         }
 
-        private string PassHasing(string pass)
+        private string PassHashing(string pass)
         {
             return Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(pass)));
         }
@@ -36,7 +36,7 @@ namespace CompactGit.Components.Pages
         {
             await Context!.Users.LoadAsync();
 
-            GitDb.User? user = Context!.Users.Where(x => x.Id == Id && x.Pw == PassHasing(Passwd)).FirstOrDefault();
+            GitDb.User? user = Context!.Users.Where(x => x.Id == Id && x.Pw == PassHashing(Passwd)).FirstOrDefault();
 
             if (user != null)
             {
