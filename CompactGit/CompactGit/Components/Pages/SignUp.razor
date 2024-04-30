@@ -3,3 +3,40 @@
 <PageTitle>Sign up</PageTitle>
 
 <h1>Sign up</h1>
+
+<div class="text-field">
+    <label for="id">ID:</label>
+    <input @bind="Id"
+           placeholder="Your ID"
+           required />
+</div>
+<div class="text-field">
+    
+    <label for="password">
+        Password:
+    </label>
+    
+    <input @bind="Passwd"
+           placeholder="Your Password"
+           required />
+
+</div>
+
+<div class="text-field">
+
+    <label for="password">
+        Password(Retry):
+    </label>
+
+    <input @bind="PasswdRe"
+           placeholder="Your Password"
+           required />
+
+</div>
+
+<button class="btn btn-primary"
+        type="button"
+        @onclick="SignUpButtonClick">
+    Sign up
+</button>
+

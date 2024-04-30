@@ -1,81 +1,43 @@
 ﻿@page "/"
-@using Microsoft.AspNetCore.Components.Authorization
-@using Microsoft.EntityFrameworkCore
-@using System.Diagnostics
-@using System.Security.Cryptography
-@using System.Text
 @rendermode InteractiveServer
-@inject NavigationManager NavigationManager
-@inject IDbContextFactory<GitDb.GitdbContext> DbFactory
-@implements IDisposable
 
 <PageTitle>Login</PageTitle>
 
 <h1>Login</h1>
 
 <div class="text-field">
-    <label for="id">ID:</label>
+    
+    <label for="id">
+        ID:
+    </label>
+    
     <input @bind="Id"
-           placeholder="Your Id"
+           placeholder="Your ID"
            required/>
+
 </div>
+
 <div class="text-field">
-    <label for="password">Password:</label>
+
+    <label for="password">
+        Password:
+    </label>
+    
     <input @bind="Passwd"
            placeholder="Your Password"
            required/>
+
 </div>
 
 <button class="btn btn-primary" 
         type="button"
-        @onclick="LoginButtonClick">Login</button>
+        @onclick="LoginButtonClick">
+    Login
+</button>
 
 <button class="btn btn-primary"
         type="button"
-        @onclick="SignUpButtonClick">Sign up</button>
+        @onclick="SignUpButtonClick">
+    Sign up
+</button>
 
-@code {
-    public string Id { get; set; } = "";
-    public string Passwd { get; set; } = "";
-    public string UserName { get; set; } = "";
-    public GitDb.GitdbContext? Context { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        Context = DbFactory.CreateDbContext();
-
-        await base.OnInitializedAsync();
-    }
-
-    private string PassHasing(string pass)
-    {
-        return Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(pass)));
-    }
-
-    private async void LoginButtonClick(MouseEventArgs e)
-    {
-        await Context!.Users.LoadAsync();
-
-        GitDb.User? user = Context!.Users.Where(x => x.Id == Id && x.Pw == PassHasing(Passwd)).FirstOrDefault();
-
-        if (user != null)
-        {
-            UserName = user.Nickname;
-            NavigationManager.NavigateTo("/" + UserName);
-        }
-        else
-        {
-            return;
-        }
-    }
-
-    private void SignUpButtonClick(MouseEventArgs e)
-    {
-        NavigationManager.NavigateTo("/sign-up");
-    }
-
-    public void Dispose()
-    {
-        Context?.Dispose();
-    }
-}
