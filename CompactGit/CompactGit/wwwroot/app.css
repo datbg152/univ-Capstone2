@@ -49,3 +49,34 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+.text-field {
+    position: relative;
+}
+
+.text-field input:focus {
+    border: 1px solid var(--primary);
+}
+
+.text-field label {
+    color: var(--secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.text-field input {
+    color: var(--secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    max-width: 100%;
+    width: 100%;
+    border: 1px solid var(--secondary);
+    height: 3.125rem;
+    letter-spacing: .03rem;
+    background-color: transparent;
+    outline: none;
+    transition: .25s;
+    border-radius: 0.5rem;
+    text-indent: 1.25rem;
+    margin-top: 0.5rem;
+}

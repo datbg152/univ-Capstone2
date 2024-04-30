@@ -5,33 +5,72 @@
 
 <h1>Sign up</h1>
 
-<div class="text-field">
-    <label for="id">ID:</label>
+<div>
+
+    <label for="id">
+        ID:
+    </label>
+
     <input @bind="Id"
            placeholder="Your ID"
            required />
 </div>
-<div class="text-field">
+
+<div>
     
     <label for="password">
         Password:
     </label>
     
     <input @bind="Passwd"
+           type="password"
            placeholder="Your Password"
            required />
 
 </div>
 
-<div class="text-field">
+<div>
 
     <label for="password">
         Password(Retry):
     </label>
 
     <input @bind="PasswdRe"
+           type="password"
            placeholder="Your Password"
            required />
+
+</div>
+
+<div>
+
+    <label for="nickname">
+        Nickname:
+    </label>
+
+    <input @bind="Nickname"
+           placeholder="Your Nickname"
+           required />
+
+</div>
+
+<div>
+
+    <label for="email">
+        Email:
+    </label>
+
+    <input @bind="Email"
+           placeholder="Your Email"
+           required />
+
+</div>
+
+<div>
+
+    <label for="error">
+        @ErrorMsg
+    </label>
 
 </div>
 

@@ -11,7 +11,8 @@ namespace CompactGit.Components.Pages
     {
         public string Id { get; set; } = "";
         public string Passwd { get; set; } = "";
-        public string UserName { get; set; } = "";
+        public string UserUrl { get; set; } = "";
+        public string ErrorMsg { get; set; } = "";
         public GitDb.GitdbContext? Context { get; set; }
 
         [Inject]
@@ -34,17 +35,24 @@ namespace CompactGit.Components.Pages
 
         private async void LoginButtonClick(MouseEventArgs e)
         {
+            if (Id == "" || Passwd == "")
+            {
+                ErrorMsg = "ID or Password is empty";
+                return;
+            }
+
             await Context!.Users.LoadAsync();
 
             GitDb.User? user = Context!.Users.Where(x => x.Id == Id && x.Pw == PassHashing(Passwd)).FirstOrDefault();
 
             if (user != null)
             {
-                UserName = user.Nickname;
-                NavigationManager.NavigateTo("/" + UserName);
+                UserUrl = user.Id;
+                NavigationManager.NavigateTo("/" + UserUrl);
             }
             else
             {
+                ErrorMsg = "Invalid ID or Password";
                 return;
             }
         }

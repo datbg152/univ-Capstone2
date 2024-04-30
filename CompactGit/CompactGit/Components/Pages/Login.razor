@@ -5,7 +5,7 @@
 
 <h1>Login</h1>
 
-<div class="text-field">
+<div>
     
     <label for="id">
         ID:
@@ -17,7 +17,7 @@
 
 </div>
 
-<div class="text-field">
+<div>
 
     <label for="password">
         Password:
@@ -25,8 +25,15 @@
     
     <input @bind="Passwd"
            placeholder="Your Password"
+           type="password"
            required/>
 
+</div>
+
+<div>
+    <label for="error">
+        @ErrorMsg
+    </label>
 </div>
 
 <button class="btn btn-primary" 
@@ -40,4 +47,3 @@
         @onclick="SignUpButtonClick">
     Sign up
 </button>
-

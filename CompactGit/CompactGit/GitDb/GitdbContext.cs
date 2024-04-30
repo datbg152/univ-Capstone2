@@ -38,6 +38,9 @@ public partial class GitdbContext : DbContext
             entity.Property(e => e.Pw)
                 .HasMaxLength(100)
                 .HasColumnName("pw");
+            entity.Property(e => e.Email)
+                .HasMaxLength(30)
+                .HasColumnName("email");
         });
 
         OnModelCreatingPartial(modelBuilder);

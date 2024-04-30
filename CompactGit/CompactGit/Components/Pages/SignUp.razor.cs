@@ -11,6 +11,9 @@ namespace CompactGit.Components.Pages
         public string Id { get; set; } = "";
         public string Passwd { get; set; } = "";
         public string PasswdRe { get; set; } = "";
+        public string Nickname { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string ErrorMsg { get; set; } = "";
         public GitDb.GitdbContext? Context { get; set; }
 
         [Inject]
@@ -33,8 +36,9 @@ namespace CompactGit.Components.Pages
 
         private async void SignUpButtonClick(MouseEventArgs e)
         {
-            if (Passwd != PasswdRe)
+            if (Passwd != PasswdRe || Id == "" || Passwd == "" || Nickname == "" || Email == "")
             {
+                ErrorMsg = "There are space that's not filled in";
                 return;
             }
 
@@ -44,7 +48,8 @@ namespace CompactGit.Components.Pages
             {
                 Id = Id,
                 Pw = PassHashing(Passwd),
-                Nickname = "New User - " + new Random().Next(0,9999),
+                Nickname = Nickname,
+                Email = Email,
             });
 
             Context!.SaveChanges();
