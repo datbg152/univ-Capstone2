@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CompactGit.GitDb;
 
-public partial class GitdbContext : DbContext
+public partial class GitDbContext : DbContext
 {
-    public GitdbContext()
+    public GitDbContext()
     {
     }
 
-    public GitdbContext(DbContextOptions<GitdbContext> options)
+    public GitDbContext(DbContextOptions<GitDbContext> options)
         : base(options)
     {
     }

@@ -13,10 +13,10 @@ namespace CompactGit.Components.Pages
         public string Passwd { get; set; } = "";
         public string UserUrl { get; set; } = "";
         public string ErrorMsg { get; set; } = "";
-        public GitDb.GitdbContext? Context { get; set; }
+        public GitDb.GitDbContext? Context { get; set; }
 
         [Inject]
-        public IDbContextFactory<GitDb.GitdbContext> DbFactory { get; set; } = default!;
+        public IDbContextFactory<GitDb.GitDbContext> DbFactory { get; set; } = default!;
 
         [Inject]
         public NavigationManager NavigationManager { get; set; } = default!;
