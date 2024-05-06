@@ -34,6 +34,18 @@ namespace CompactGit.Components.Pages
             await base.OnInitializedAsync();
         }
 
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            string loginCookie = await Cookie.GetValue("login");
+
+            if (loginCookie != "")
+            {
+                NavigationManager.NavigateTo("/user/" + loginCookie);
+            }
+
+            await base.OnAfterRenderAsync(firstRender);
+        }
+
         private string PassHashing(string pass)
         {
             return Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(pass)));
@@ -54,7 +66,8 @@ namespace CompactGit.Components.Pages
             if (user != null)
             {
                 UserUrl = user.Id;
-                await Cookie.SetValue(UserUrl, UserUrl);
+                await Cookie.SetValue("login", UserUrl);
+
                 NavigationManager.NavigateTo("/user/" + UserUrl);
             }
             else

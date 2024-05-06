@@ -11,7 +11,8 @@
         ID:
     </label>
 
-    <input @bind="Id"
+    <input @bind-value="Id"
+           @bind-value:event="oninput"
            placeholder="Your ID"
            required />
 </div>
@@ -22,7 +23,8 @@
         PW:
     </label>
     
-    <input @bind="Passwd"
+    <input @bind-value="Passwd"
+           @bind-value:event="oninput"
            type="password"
            placeholder="Your Password"
            required />
@@ -35,7 +37,8 @@
         PW(Retry):
     </label>
 
-    <input @bind="PasswdRe"
+    <input @bind-value="PasswdRe"
+           @bind-value:event="oninput"
            type="password"
            placeholder="Your Password"
            required />
@@ -48,9 +51,11 @@
         Nickname:
     </label>
 
-    <input @bind="Nickname"
+    <input @bind-value="Nickname"
+           @bind-value:event="oninput"
            placeholder="Your Nickname"
-           required />
+           required
+           pattern="^[a-zA-Z0-9_-.]*$" />
 
 </div>
 
@@ -60,9 +65,11 @@
         Email:
     </label>
 
-    <input @bind="Email"
+    <input @bind-value="Email"
+           @bind-value:event="oninput"
            placeholder="Your Email"
-           required />
+           required
+           pattern="^[a-zA-Z0-9_-.@@]*$" />
 
 </div>
 

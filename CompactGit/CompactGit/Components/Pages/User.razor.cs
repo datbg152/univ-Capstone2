@@ -19,7 +19,11 @@ namespace CompactGit.Components.Pages
 
         private void FindReposButtonClick(MouseEventArgs e)
         {
-            NavigationManager.NavigateTo("/repos/" + FindInput);
+            if (FindInput.Contains("/") == true)
+                NavigationManager.NavigateTo("/repos/" + FindInput);
+
+            else
+                NavigationManager.NavigateTo("/user/" + FindInput);
         }
 
         private void ReposButtonClick(MouseEventArgs e)
@@ -29,7 +33,7 @@ namespace CompactGit.Components.Pages
 
         private async Task SettingsButtonClickAsync(MouseEventArgs e)
         {
-            string msg = await Cookie.GetValue(UserUrl);
+            string msg = await Cookie.GetValue("login");
 
             if (msg != UserUrl)
             {
@@ -37,6 +41,19 @@ namespace CompactGit.Components.Pages
             }
 
             NavigationManager.NavigateTo("/settings/" + UserUrl);
+        }
+
+        private async Task LogoutButtonClickAsync(MouseEventArgs e)
+        {
+            string cookie = await Cookie.GetValue("login");
+
+            if (cookie == UserUrl)
+            {
+                await Cookie.SetValue("login", "");
+                string tmp = await Cookie.GetValue("login");
+
+                NavigationManager.NavigateTo("/");
+            }
         }
     }
 }

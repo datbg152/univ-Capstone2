@@ -3,16 +3,24 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CompactGit.Components.Pages
 {
     public partial class SignUp : ComponentBase, IDisposable
     {
-        public string Id { get; set; } = "";
-        public string Passwd { get; set; } = "";
-        public string PasswdRe { get; set; } = "";
-        public string Nickname { get; set; } = "";
-        public string Email { get; set; } = "";
+        private string id = "";
+        private string passwd = "";
+        private string passwdRe = "";
+        private string nickname = "";
+        private string email = "";
+
+
+        public string Id { get => id; set { id = Regex.Replace(value, "[^0-9a-zA-Z._-]", ""); } }
+        public string Passwd { get => passwd; set { passwd =  Regex.Replace(value, "[^\x20-\x7E]", ""); } }
+        public string PasswdRe { get => passwdRe; set { passwdRe = Regex.Replace(value, "[^\x20 -\x7E]", ""); } }
+        public string Nickname { get => nickname; set { nickname = Regex.Replace(value, "[^0-9a-zA-Z._-]", ""); } }
+        public string Email { get => email; set { email = Regex.Replace(value, "[^0-9a-zA-Z._@-]", ""); } }
         public string ErrorMsg { get; set; } = "";
         public GitDb.GitDbContext? Context { get; set; }
 
