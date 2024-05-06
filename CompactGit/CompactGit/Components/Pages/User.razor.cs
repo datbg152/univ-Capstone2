@@ -6,6 +6,8 @@ namespace CompactGit.Components.Pages
 {
     public partial class User
     {
+        public bool IsMyProfile = false;
+
         [Parameter] 
         public string UserUrl { get; set; } = default!;
 
@@ -14,6 +16,19 @@ namespace CompactGit.Components.Pages
 
         [Inject]
         public ICookie Cookie { get; set; } = default!;
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            string loginCookie = await Cookie.GetValue("login");
+
+            if (loginCookie != UserUrl)
+            {
+                IsMyProfile = true;
+                StateHasChanged();
+            }
+
+            await base.OnAfterRenderAsync(firstRender);
+        }
 
         private string FindInput { get; set; } = "";
 

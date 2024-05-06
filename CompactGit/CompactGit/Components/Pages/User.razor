@@ -14,8 +14,8 @@
            placeholder="Find Other User's Repository"
            @bind=FindInput>
 
-    <button id="Find"
-            type="submit"
+    <button id="Find" class="btn btn-primary"
+            type="button"
             @onclick="FindReposButtonClick">
         Find
     </button>
@@ -24,9 +24,10 @@
 
 <div class="My_repo">
 
-    <button id="My_repo"
-            type="submit"
-            @onclick="ReposButtonClick">
+    <button id="My_repo" class="btn btn-primary"
+            type="button"
+            @onclick="ReposButtonClick"
+            hidden=@IsMyProfile>
         My Repository
     </button>
 
@@ -34,9 +35,10 @@
 
 <div class="Settings">
 
-    <button id="Settings"
-            type="submit"
-            @onclick="SettingsButtonClickAsync">
+    <button id="Settings" class="btn btn-primary"
+            type="button"
+            @onclick="SettingsButtonClickAsync" 
+            hidden=@IsMyProfile>
         Settings
     </button>
 
@@ -44,9 +46,10 @@
 
 <div class="Logout">
 
-    <button id="Settings"
-            type="submit"
-            @onclick="LogoutButtonClickAsync">
+    <button id="Settings" class="btn btn-primary"
+            type="button"
+            @onclick="LogoutButtonClickAsync"
+            hidden=@IsMyProfile>
         Logout
     </button>
 
