@@ -1,7 +1,10 @@
+using CompactGit.Utils;
+using Google.Protobuf;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc.Razor.Internal;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -20,6 +23,9 @@ namespace CompactGit.Components.Pages
 
         [Inject]
         public NavigationManager NavigationManager { get; set; } = default!;
+
+        [Inject]
+        public ICookie Cookie { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
@@ -48,7 +54,8 @@ namespace CompactGit.Components.Pages
             if (user != null)
             {
                 UserUrl = user.Id;
-                NavigationManager.NavigateTo("/" + UserUrl);
+                await Cookie.SetValue(UserUrl, UserUrl);
+                NavigationManager.NavigateTo("/user/" + UserUrl);
             }
             else
             {
