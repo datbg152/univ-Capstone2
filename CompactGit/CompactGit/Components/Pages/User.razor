@@ -27,7 +27,7 @@
     <button id="My_repo" class="btn btn-primary"
             type="button"
             @onclick="ReposButtonClick"
-            hidden=@IsMyProfile>
+            hidden=@IsNotMyProfile>
         My Repository
     </button>
 
@@ -38,7 +38,7 @@
     <button id="Settings" class="btn btn-primary"
             type="button"
             @onclick="SettingsButtonClickAsync" 
-            hidden=@IsMyProfile>
+            hidden=@IsNotMyProfile>
         Settings
     </button>
 
@@ -49,7 +49,7 @@
     <button id="Settings" class="btn btn-primary"
             type="button"
             @onclick="LogoutButtonClickAsync"
-            hidden=@IsMyProfile>
+            hidden=@IsNotMyProfile>
         Logout
     </button>
 

@@ -6,7 +6,7 @@ namespace CompactGit.Components.Pages
 {
     public partial class User
     {
-        public bool IsMyProfile = false;
+        public bool IsNotMyProfile = false;
 
         [Parameter] 
         public string UserUrl { get; set; } = default!;
@@ -23,7 +23,7 @@ namespace CompactGit.Components.Pages
 
             if (loginCookie != UserUrl)
             {
-                IsMyProfile = true;
+                IsNotMyProfile = true;
                 StateHasChanged();
             }
 

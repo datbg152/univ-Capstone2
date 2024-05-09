@@ -33,7 +33,7 @@ namespace CompactGit.Utils
             var vals = cValue.Split(';');
             foreach (var val in vals)
                 if (!string.IsNullOrEmpty(val) && val.IndexOf('=') > 0)
-                    if (val.Substring(1, val.IndexOf('=') - 1).Trim().Equals(key, StringComparison.OrdinalIgnoreCase))
+                    if (val[0..val.IndexOf('=')].Trim().Equals(key, StringComparison.OrdinalIgnoreCase))
                         return val.Substring(val.IndexOf('=') + 1);
             return def;
         }
