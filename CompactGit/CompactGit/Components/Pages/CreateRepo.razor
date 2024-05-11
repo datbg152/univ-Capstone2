@@ -31,6 +31,14 @@
                         </span>
                     </label>
 
+                    <label class="list-group-item d-flex gap-2 mb-2">
+                        <input class="form-check-input flex-shrink-0 fs-5 readme-mark" type="checkbox" @bind="IsPublic" />
+                        <span>
+                            Public Repository
+                            <small class="d-block text-body-secondary">Choose want to public to repo.</small>
+                        </span>
+                    </label>
+
                     <label class="list-group-item d-flex gap-2">
                         <input class="form-check-input flex-shrink-0 fs-5 gitignore-mark" type="checkbox" @bind="ChooseGitignore" />
                         <span>
@@ -41,7 +49,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-primary" type="submit" @onclick="CreateRepository">Create repository</button>
+                    <button class="btn btn-primary" type="submit" @onclick="CreateRepositoryAsync">Create repository</button>
                 </div>
             </div>
         </form>

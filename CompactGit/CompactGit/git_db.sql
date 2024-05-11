@@ -1,5 +1,5 @@
-drop database if exists gitdb;
-create database if not exists gitdb;
+drop database if exists git_db;
+create database if not exists git_db;
 
 use gitdb;
 
