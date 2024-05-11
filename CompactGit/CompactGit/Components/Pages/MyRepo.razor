@@ -1,0 +1,56 @@
+﻿@page "/my-repo/{RepoUrl}"
+@rendermode InteractiveServer
+
+<PageTitle>My Repository</PageTitle>
+
+<h1>My Repository</h1>
+
+<div class="user">
+    <!-- Profile content -->
+</div>
+
+<div class="find_box">
+    <input type="text"
+           name="find"
+           placeholder=" Find My Repository"
+           @bind=FindInput>
+    <button id="New" class="btn btn-primary"
+            type="button"
+            @onclick="NewButtonClickAsync">
+        New
+    </button>
+</div>
+
+<div class="My_repo">
+    <button @onclick="TypeButtonClickAsync">Type</button>
+</div>
+
+<div id="visibilityDropdown" style="display: none;">
+    <select @onchange="@(e => OnVisibilitySelect(e.Value.ToString()))">
+        <option value="All">All</option>
+        <option value="Public">Public</option>
+        <option value="Private">Private</option>
+    </select>
+</div>
+
+<div class="Settings">
+    <button id="Settings" class="btn btn-primary"
+            type="button"
+            @onclick="SettingsButtonClickAsync">
+        Settings
+    </button>
+</div>
+
+@*db에 Repository 관련 작성?*@
+<div class="Repositories">
+    @foreach (var repository in Repositories.OrderBy(r => r.IsFavorite))
+    {
+        <div class="line" @onclick="() => RepositoryClickAsync(repository.Id)">
+            @repository.Name
+            @if (repository.IsFavorite)
+            {
+                <span class="badge badge-pill badge-warning">★</span>
+            }
+        </div>
+    }
+</div>
