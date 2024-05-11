@@ -1,5 +1,6 @@
 using CompactGit.Components;
 using CompactGit.GitDb;
+using CompactGit.RepoDb;
 using CompactGit.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddScoped<ICookie, Cookie>()
     .AddDbContextFactory<GitDbContext>()
+    .AddDbContextFactory<RepoDbContext>()
     .AddRazorComponents()
     .AddInteractiveServerComponents();
 
