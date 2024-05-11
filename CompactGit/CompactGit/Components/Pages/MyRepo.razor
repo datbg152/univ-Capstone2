@@ -1,0 +1,47 @@
+﻿@page "/my-repo"
+@rendermode InteractiveServer
+
+<h1>My Repository</h1>
+
+<div class="user">
+    <!-- Profile content -->
+</div>
+
+<div class="find_box">
+    <input type="text"
+           name="find"
+           placeholder=" Find My Repository"
+           @bind=FindInput>
+    <button id="New" class="btn btn-primary"
+            type="button"
+            @onclick="NewButtonClickAsync">
+        New
+    </button>
+</div>
+
+<div class="My_repo">
+    <button id="Type" class="btn btn-primary"
+            type="button"
+            @onclick="TypeButtonClickAsync">
+        Type
+    </button>
+</div>
+
+<div class="Settings">
+    <button id="Settings" class="btn btn-primary"
+            type="button"
+            @onclick="SettingsButtonClickAsync">
+        Settings
+    </button>
+</div>
+
+@* 아직 안만듦
+<div class="Repositories">
+    @foreach (var repository in Repositories)
+    {
+        <div class="line" @onclick="() => RepositoryClickAsync(repository.Id)">
+            @repository.Name
+        </div>
+    }
+</div>
+*@
