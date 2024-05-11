@@ -1,5 +1,7 @@
-﻿@page "/my-repo"
+﻿@page "/my-repo/{RepoUrl}"
 @rendermode InteractiveServer
+
+<PageTitle>My Repository</PageTitle>
 
 <h1>My Repository</h1>
 
@@ -20,11 +22,15 @@
 </div>
 
 <div class="My_repo">
-    <button id="Type" class="btn btn-primary"
-            type="button"
-            @onclick="TypeButtonClickAsync">
-        Type
-    </button>
+    <button @onclick="TypeButtonClickAsync">Type</button>
+</div>
+
+<div id="visibilityDropdown" style="display: none;">
+    <select @onchange="@(e => OnVisibilitySelect(e.Value.ToString()))">
+        <option value="All">All</option>
+        <option value="Public">Public</option>
+        <option value="Private">Private</option>
+    </select>
 </div>
 
 <div class="Settings">
@@ -35,13 +41,16 @@
     </button>
 </div>
 
-@* 아직 안만듦
+@*db에 Repository 관련 작성?*@
 <div class="Repositories">
-    @foreach (var repository in Repositories)
+    @foreach (var repository in Repositories.OrderBy(r => r.IsFavorite))
     {
         <div class="line" @onclick="() => RepositoryClickAsync(repository.Id)">
             @repository.Name
+            @if (repository.IsFavorite)
+            {
+                <span class="badge badge-pill badge-warning">★</span>
+            }
         </div>
     }
 </div>
-*@
