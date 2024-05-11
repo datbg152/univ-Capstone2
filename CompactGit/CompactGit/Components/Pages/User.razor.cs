@@ -70,10 +70,5 @@ namespace CompactGit.Components.Pages
                 NavigationManager.NavigateTo("/");
             }
         }
-
-        private void CreateRepoButtonClickAsync(MouseEventArgs e)
-        {
-            NavigationManager.NavigateTo("/create-repo");
-        }
     }
 }

@@ -13,6 +13,7 @@ namespace CompactGit.Components.Pages
     {
         public string FindInput { get; set; } = "";
         public RepoDb.RepoDbContext? Context { get; set; }
+        public List<RepoDb.Repo> RepoList { get; set; } = new List<RepoDb.Repo>();
 
         [Parameter]
         public string UserUrl { get; set; } = default!;
@@ -29,6 +30,9 @@ namespace CompactGit.Components.Pages
         protected override async Task OnInitializedAsync()
         {
             Context = DbContextFactory.CreateDbContext();
+            await Context!.Repos.LoadAsync();
+
+            RepoList = Context!.Repos.Where(x=>x.UserId == UserUrl).ToList();
 
             await base.OnInitializedAsync();
         }

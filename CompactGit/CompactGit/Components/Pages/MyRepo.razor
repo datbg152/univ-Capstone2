@@ -1,4 +1,4 @@
-﻿@page "/repos/{RepoUrl}"
+﻿@page "/repos/{UserUrl}"
 @rendermode InteractiveServer
 
 <PageTitle>My Repository</PageTitle>
@@ -34,4 +34,26 @@
             @onclick="SettingsButtonClickAsync">
         Settings
     </button>
+</div>
+
+<div>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th>Repository</th>
+                <th>Description</th>
+                <th>Is Public</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in RepoList)
+            {
+                <tr>
+                    <td>@emp.UserId/@emp.RepoName</td>
+                    <td>@emp.Description</td>
+                    <td>@emp.IsPublic</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
