@@ -1,7 +1,7 @@
 drop database if exists git_db;
 create database if not exists git_db;
 
-use gitdb;
+use git_db;
 
 create table user (
     id varchar(100) not null,
